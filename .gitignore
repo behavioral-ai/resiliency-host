@@ -27,3 +27,4 @@ go.work.sum
 #Intellij
 *.idea
 
+bin/service
