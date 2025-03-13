@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"github.com/behavioral-ai/core/messaging"
-	"github.com/behavioral-ai/domain/test"
 	http2 "github.com/behavioral-ai/operations/http"
 	"github.com/behavioral-ai/operations/module"
 	"log"
@@ -80,9 +79,8 @@ func displayRuntime(port string) {
 }
 
 func startup(r *http.ServeMux, cmdLine []string) (http.Handler, bool) {
-	// Start operations agent and add content
+	// Start operations agent
 	module.Startup(nil, nil, "localhost")
-	test.Startup()
 
 	// Initialize health handlers
 	r.Handle(healthLivelinessPattern, http.HandlerFunc(healthLivelinessHandler))
