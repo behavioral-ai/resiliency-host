@@ -80,7 +80,7 @@ func displayRuntime(port string) {
 
 func startup(r *http.ServeMux, cmdLine []string) (http.Handler, bool) {
 	// Start operations agent
-	module.Startup(nil, nil, "localhost")
+	module.Startup("localhost")
 
 	// Initialize health handlers
 	r.Handle(healthLivelinessPattern, http.HandlerFunc(healthLivelinessHandler))
