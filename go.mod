@@ -1,14 +1,16 @@
 module github.com/behavioral-ai/resiliency-host
 
-go 1.21.4
+go 1.23.0
+
+//toolchain go1.23.7
 
 require (
-	github.com/behavioral-ai/core v0.0.0-20250316163404-5b9749764351
-	github.com/behavioral-ai/operations v0.0.0-20250316215932-7bfe777bd86e
+	github.com/behavioral-ai/core v0.0.0-20250320215035-7a643fa8c0d6
+	github.com/behavioral-ai/resiliency v0.0.0-20250320224041-96a6e3a646f8
 )
 
 require (
-	github.com/behavioral-ai/caseofficer v0.0.0-20250316213042-b2cdd8c16e35 // indirect
-	github.com/behavioral-ai/domain v0.0.0-20250316164439-e4c2ec7e69a9 // indirect
-	github.com/behavioral-ai/operative v0.0.0-20250316174522-912112708129 // indirect
+	github.com/behavioral-ai/collective v0.0.0-20250319170747-7f2ad00fb7f7 // indirect
+	github.com/google/uuid v1.6.0 // indirect
+	golang.org/x/time v0.11.0 // indirect
 )

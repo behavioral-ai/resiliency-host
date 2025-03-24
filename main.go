@@ -4,8 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/behavioral-ai/core/messaging"
-	http2 "github.com/behavioral-ai/operations/http"
-	"github.com/behavioral-ai/operations/module"
+	http2 "github.com/behavioral-ai/resiliency/http"
 	"log"
 	"net/http"
 	"os"
@@ -79,15 +78,12 @@ func displayRuntime(port string) {
 }
 
 func startup(r *http.ServeMux, cmdLine []string) (http.Handler, bool) {
-	// Start operations agent
-	module.Startup("localhost")
-
 	// Initialize health handlers
 	r.Handle(healthLivelinessPattern, http.HandlerFunc(healthLivelinessHandler))
 	r.Handle(healthReadinessPattern, http.HandlerFunc(healthReadinessHandler))
 
-	// Add operations handler
-	r.Handle(module.ResiliencyPath, http.HandlerFunc(http2.Exchange))
+	// Default http handler
+	r.Handle("/", http.HandlerFunc(http2.Exchange))
 	return r, true
 }
 
