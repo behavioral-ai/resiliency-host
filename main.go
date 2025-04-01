@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/behavioral-ai/core/messaging"
-	http2 "github.com/behavioral-ai/resiliency/http"
+	"github.com/behavioral-ai/resiliency/endpoint"
 	"log"
 	"net/http"
 	"os"
@@ -82,8 +82,9 @@ func startup(r *http.ServeMux, cmdLine []string) (http.Handler, bool) {
 	r.Handle(healthLivelinessPattern, http.HandlerFunc(healthLivelinessHandler))
 	r.Handle(healthReadinessPattern, http.HandlerFunc(healthReadinessHandler))
 
-	// Default http handler
-	r.Handle("/", http.HandlerFunc(http2.Exchange))
+	// Operations and default http handler
+	r.Handle(endpoint.OperationsPattern, http.HandlerFunc(endpoint.Operations.Exchange))
+	r.Handle(endpoint.RootPattern, http.HandlerFunc(endpoint.Root.Exchange))
 	return r, true
 }
 
