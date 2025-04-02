@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/behavioral-ai/core/messaging"
 	"github.com/behavioral-ai/resiliency/endpoint"
+	"github.com/behavioral-ai/resiliency/operations"
 	"log"
 	"net/http"
 	"os"
@@ -78,6 +79,11 @@ func displayRuntime(port string) {
 }
 
 func startup(r *http.ServeMux, cmdLine []string) (http.Handler, bool) {
+	// Initialize resiliency operations agent event notifier
+	operations.Initialize(nil)
+
+	r.Handle("/favicon.ico", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {}))
+
 	// Initialize health handlers
 	r.Handle(healthLivelinessPattern, http.HandlerFunc(healthLivelinessHandler))
 	r.Handle(healthReadinessPattern, http.HandlerFunc(healthReadinessHandler))
