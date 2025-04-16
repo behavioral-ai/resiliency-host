@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/behavioral-ai/core/messaging"
+	"github.com/behavioral-ai/collective/eventing"
 	"github.com/behavioral-ai/resiliency/endpoint"
 	"github.com/behavioral-ai/resiliency/operations"
 	"log"
@@ -79,21 +79,22 @@ func displayRuntime(port string) {
 }
 
 func startup(r *http.ServeMux, cmdLine []string) (http.Handler, bool) {
-	// Initialize resiliency operations agent event notifier
-	operations.Initialize(nil)
+	// Initialize eventing notifier and activity
+	operations.Initialize(eventing.OutputNotify, eventing.OutputActivity)
 
 	r.Handle("/favicon.ico", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {}))
 
 	// Initialize health handlers
-	r.Handle(healthLivelinessPattern, http.HandlerFunc(healthLivelinessHandler))
-	r.Handle(healthReadinessPattern, http.HandlerFunc(healthReadinessHandler))
+	r.Handle(endpoint.HealthPattern, endpoint.Health) //http.HandlerFunc(healthLivelinessHandler))
+	//r.Handle(healthReadinessPattern, endpoint.Health) //http.HandlerFunc(healthReadinessHandler))
 
 	// Operations and default http handler
-	r.Handle(endpoint.OperationsPattern, http.HandlerFunc(endpoint.Operations.Exchange))
-	r.Handle(endpoint.RootPattern, http.HandlerFunc(endpoint.Root.Exchange))
+	r.Handle(endpoint.OperationsPattern, endpoint.Operations) //http.HandlerFunc(endpoint.Operations.Exchange))
+	r.Handle(endpoint.RootPattern, endpoint.Root)             //http.HandlerFunc(endpoint.Root.Exchange))
 	return r, true
 }
 
+/*
 func healthLivelinessHandler(w http.ResponseWriter, r *http.Request) {
 	writeHealthResponse(w, messaging.StatusOK())
 }
@@ -111,3 +112,6 @@ func writeHealthResponse(w http.ResponseWriter, status *messaging.Status) {
 		w.WriteHeader(http.StatusBadRequest)
 	}
 }
+
+
+*/
