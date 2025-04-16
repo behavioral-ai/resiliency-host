@@ -85,8 +85,8 @@ func startup(r *http.ServeMux, cmdLine []string) (http.Handler, bool) {
 	r.Handle("/favicon.ico", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {}))
 
 	// Initialize health handlers
-	r.Handle(endpoint.HealthPattern, endpoint.Health) //http.HandlerFunc(healthLivelinessHandler))
-	//r.Handle(healthReadinessPattern, endpoint.Health) //http.HandlerFunc(healthReadinessHandler))
+	r.Handle(healthLivelinessPattern, endpoint.Health) //http.HandlerFunc(healthLivelinessHandler))
+	r.Handle(healthReadinessPattern, endpoint.Health)  //http.HandlerFunc(healthReadinessHandler))
 
 	// Operations and default http handler
 	r.Handle(endpoint.OperationsPattern, endpoint.Operations) //http.HandlerFunc(endpoint.Operations.Exchange))
