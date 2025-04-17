@@ -1,0 +1,8 @@
+// Origin for access logging
+region   : region
+zone     : zone
+sub-zone : sub-zone
+host     : host-name
+instance-id : instance-id
+
+

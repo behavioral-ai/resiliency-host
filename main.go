@@ -22,6 +22,10 @@ const (
 	idleTimeout             = time.Second * 60
 	healthLivelinessPattern = "/health/liveness"
 	healthReadinessPattern  = "/health/readiness"
+
+	agentsConfigPath  = "file://[cwd]/resource/agents-config.txt"
+	originConfigPath  = "file://[cwd]/resource/origin-config.txt"
+	loggingConfigPath = "file://[cwd]/resource/logging-operators.json"
 )
 
 func main() {
