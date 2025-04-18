@@ -25,6 +25,9 @@
     "Value": "%STATUS_CODE%"
   },
   {
+    "Value": "%BYTES_RECEIVED%"
+  },
+  {
     "Value": "%TIMEOUT_DURATION%"
   },
   {

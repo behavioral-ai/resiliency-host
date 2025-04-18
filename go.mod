@@ -5,14 +5,14 @@ go 1.23.0
 //toolchain go1.23.7
 
 require (
-	github.com/behavioral-ai/collective v0.0.0-20250416132834-574dafb8d4ff
-	github.com/behavioral-ai/resiliency v0.0.0-20250416141310-309d75ed746e
+	github.com/behavioral-ai/collective v0.0.0-20250417133600-9f122664a3f5
+	github.com/behavioral-ai/resiliency v0.0.0-20250418105811-25f193a14632
 )
 
 require (
-	github.com/behavioral-ai/core v0.0.0-20250416135029-a05cc0812d37 // indirect
-	github.com/behavioral-ai/intermediary v0.0.0-20250416135012-736c3de6d445 // indirect
-	github.com/behavioral-ai/traffic v0.0.0-20250416132858-590b5ab30a91 // indirect
+	github.com/behavioral-ai/core v0.0.0-20250417131211-9b8be82024bc // indirect
+	github.com/behavioral-ai/intermediary v0.0.0-20250417134621-5e6c93353ec4 // indirect
+	github.com/behavioral-ai/traffic v0.0.0-20250417134412-81fba5449b65 // indirect
 	github.com/dchest/siphash v1.2.3 // indirect
 	github.com/dustinxie/lockfree v0.0.0-20210712051436-ed0ed42fd0d6 // indirect
 	github.com/google/uuid v1.6.0 // indirect

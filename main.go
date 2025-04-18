@@ -84,8 +84,15 @@ func displayRuntime(port string) {
 
 func startup(r *http.ServeMux, cmdLine []string) (http.Handler, bool) {
 	// Initialize eventing notifier and activity
-	operations.Initialize(eventing.OutputNotify, eventing.OutputActivity)
-
+	operations.ConfigureEventing(eventing.OutputNotify, eventing.OutputActivity)
+	err := operations.ConfigureLogging(loggingConfigPath, originConfigPath)
+	if err != nil {
+		fmt.Printf("%v\n", err)
+	}
+	err = operations.ConfigureAgents(agentsConfigPath, "")
+	if err != nil {
+		fmt.Printf("%v\n", err)
+	}
 	r.Handle("/favicon.ico", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {}))
 
 	// Initialize health handlers
