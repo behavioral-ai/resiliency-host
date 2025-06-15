@@ -22,8 +22,8 @@ const (
 
 	operatorsFileName = "logging-operators.json"
 	appFileName       = "app-config.json"
-	originFileName = "origin-config.json"
-	configSubDir = "/resource"
+	originFileName    = "origin-config.json"
+	configSubDir      = "/resource"
 )
 
 func main() {
@@ -90,9 +90,9 @@ func readFile(fileName string) ([]byte, error) {
 
 var (
 	m2 = map[string]string{
-		messaging.RegionKey: "us-west1",
-		messaging.ZoneKey:    "oregon",
-		messaging.SubZoneKey: "portland",
+		messaging.RegionKey:     "us-west1",
+		messaging.ZoneKey:       "oregon",
+		messaging.SubZoneKey:    "portland",
 		messaging.InstanceIdKey: "123456789",
 	}
 )
@@ -103,7 +103,7 @@ func startup(r *http.ServeMux, cmdLine []string) (http.Handler, bool) {
 		return readFile(originFileName)
 	})
 	if err != nil {
-		fmt.Printf("error on Origin configuration: %v\n",err)
+		fmt.Printf("error on Origin configuration: %v\n", err)
 		return r, false
 	}
 
@@ -112,30 +112,30 @@ func startup(r *http.ServeMux, cmdLine []string) (http.Handler, bool) {
 		return readFile(operatorsFileName)
 	})
 	if err != nil {
-		fmt.Printf("error on logging operators configuration: %v\n",err)
+		fmt.Printf("error on logging operators configuration: %v\n", err)
 		return r, false
 	}
 
 	// configure the application
-	appCfg,err1 := operations.ReadAppConfig(map[string]string,func() ([]byte, error) {
+	appCfg, err1 := operations.ReadAppConfig(func() ([]byte, error) {
 		return readFile(appFileName)
 	})
 	if err1 != nil {
-		fmt.Printf("error on application configuration: %v\n",err1)
+		fmt.Printf("error on application configuration: %v\n", err1)
 		return r, false
 	}
 
 	// configure the application networks
-	errs := operations.ConfigureNetworks(appCfg,readFile)
+	errs := operations.ConfigureNetworks(appCfg, readFile)
 	if len(errs) > 0 {
-		fmt.Printf("error on application networks configuration: %v\n",errs)
+		fmt.Printf("error on application networks configuration: %v\n", errs)
 		return r, false
 	}
 
 	// initialize Http handlers
 	r.Handle("/favicon.ico", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {}))
-	for _,v := range operations.Endpoint {
-		r.Handle(v.Pattern(),v)
+	for _, v := range operations.Endpoint {
+		r.Handle(v.Pattern(), v)
 	}
 	return r, true
 }

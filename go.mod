@@ -6,7 +6,7 @@ go 1.23.0
 
 require (
 	github.com/behavioral-ai/collective v0.0.0-20250614222355-9da1545ab888
-	github.com/behavioral-ai/resiliency v0.0.0-20250614224749-e1652b75c99e
+	github.com/behavioral-ai/resiliency v0.0.0-20250615115704-72892dfb4786
 )
 
 require (

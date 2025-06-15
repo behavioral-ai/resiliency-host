@@ -34,6 +34,8 @@ github.com/behavioral-ai/resiliency v0.0.0-20250614120847-3afaf41efb8c h1:Un28br
 github.com/behavioral-ai/resiliency v0.0.0-20250614120847-3afaf41efb8c/go.mod h1:BV40uqJsFz+vUvOJdiFOkFsRt5gft+Yr+Zy95X4FkJA=
 github.com/behavioral-ai/resiliency v0.0.0-20250614224749-e1652b75c99e h1:1tJM98ZrZw8sOgBjnQwYx+71tdL+42qKJv4XcqSgXeA=
 github.com/behavioral-ai/resiliency v0.0.0-20250614224749-e1652b75c99e/go.mod h1:90OEY9eS8KN1H8zXkuNsi4KUKZDLR4PrnxSloPrlq/4=
+github.com/behavioral-ai/resiliency v0.0.0-20250615115704-72892dfb4786 h1:k3wjCHmoLxrNVEbuKyGXxNP3LW+2+BcfPAs6DnrcB+0=
+github.com/behavioral-ai/resiliency v0.0.0-20250615115704-72892dfb4786/go.mod h1:90OEY9eS8KN1H8zXkuNsi4KUKZDLR4PrnxSloPrlq/4=
 github.com/behavioral-ai/traffic v0.0.0-20250416132858-590b5ab30a91 h1:iT9IR0d/jqRi6qBXvp4I8C1ebp5NMgxSgkakTpoVn+I=
 github.com/behavioral-ai/traffic v0.0.0-20250416132858-590b5ab30a91/go.mod h1:3Yx0J3sh6nAW2CGeWv8aiedOrUQHkZNUzBujFj8ba3g=
 github.com/behavioral-ai/traffic v0.0.0-20250417134412-81fba5449b65 h1:hxL4Jkb8T2KmLsdV3UqXvUVgojvpBuZu3/okQADUyl0=
