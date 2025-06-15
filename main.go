@@ -3,9 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/behavioral-ai/collective/eventing"
 	"github.com/behavioral-ai/core/messaging"
-	"github.com/behavioral-ai/resiliency/endpoint"
 	"github.com/behavioral-ai/resiliency/operations"
 	"log"
 	"net/http"
@@ -21,8 +19,6 @@ const (
 	writeTimeout = time.Second * 300
 	readTimeout  = time.Second * 15
 	idleTimeout  = time.Second * 60
-	//healthLivelinessPattern = "/health/liveness"
-	//healthReadinessPattern  = "/health/readiness"
 
 	operatorsFileName = "logging-operators.json"
 	appFileName       = "app-config.json"
