@@ -1,0 +1,43 @@
+[
+  {
+    "role": "authorization",
+    "name": "test:resiliency:link/authorization/http"
+  },
+  {
+    "role": "logging",
+    "name": "test:core:agent/log/access/http"
+  },
+  {
+    "role": "rate-limiting",
+    "name":"test:resiliency:agent/rate-limiting/request/http",
+    "rate-limit": "1234",
+    "rate-burst": "12",
+    "peak-duration": "750ms",
+    "off-peak-duration": "5m",
+    "load-size": "567"
+  },
+  {
+    "role": "cache",
+    "name":"test:resiliency:agent/cache/request/http",
+    "host":"localhost:8081",
+    "cache-control":"no-store, no-cache, max-age=0",
+    "timeout":"750ms",
+    "interval":"4m",
+    "sun":"13-15",
+    "mon":"8-16",
+    "tue":"6-10",
+    "wed":"12-12",
+    "thu":"0-23",
+    "fri":"22-23",
+    "sat":"3-8"
+  },
+  {
+    "role": "routing",
+    "name":"test:resiliency:agent/routing/request/http",
+    "app-host": "localhost:8080",
+    "cache-host": "localhost:8081",
+    "timeout": "2m",
+    "interval": "4m"
+  }
+]
+

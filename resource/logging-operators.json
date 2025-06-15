@@ -25,15 +25,6 @@
     "Value": "%STATUS_CODE%"
   },
   {
-    "Value": "%BYTES_RECEIVED%"
-  },
-  {
-    "Value": "%CACHED%"
-  },
-  {
-    "Value": "%CONTENT-ENCODING%"
-  },
-  {
     "Value": "%TIMEOUT_DURATION%"
   },
   {

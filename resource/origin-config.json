@@ -1,0 +1,6 @@
+{
+  "host":"www.google.com",
+  "service-name":"google-search",
+  "collective":"google-collective",
+  "domain":"search"
+}

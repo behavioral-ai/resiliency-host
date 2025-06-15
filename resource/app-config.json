@@ -1,0 +1,4 @@
+{
+  "test:resiliency:agent/caseOfficer/service/traffic/ingress/primary":  "network-config-primary.json"
+}
+
