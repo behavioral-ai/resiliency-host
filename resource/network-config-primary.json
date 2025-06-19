@@ -1,15 +1,12 @@
 [
   {
-    "role": "authorization",
-    "name": "test:resiliency:link/authorization/http"
-  },
-  {
     "role": "logging",
     "name": "test:core:agent/log/access/http"
   },
   {
     "role": "rate-limiting",
     "name":"test:resiliency:agent/rate-limiting/request/http",
+    "assignment": "local",
     "rate-limit": "1234",
     "rate-burst": "12",
     "peak-duration": "750ms",

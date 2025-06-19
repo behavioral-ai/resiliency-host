@@ -134,9 +134,11 @@ func startup(r *http.ServeMux, cmdLine []string) (http.Handler, bool) {
 
 	// initialize Http handlers
 	r.Handle("/favicon.ico", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {}))
-	for _, v := range operations.Endpoint {
+	for k, v := range operations.Endpoint {
+		fmt.Printf("k: %v v: %v\n", k, v)
 		r.Handle(v.Pattern(), v)
 	}
+	operations.Startup()
 	return r, true
 }
 
